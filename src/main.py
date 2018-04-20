@@ -3,7 +3,7 @@ import pygame.draw
 import pygame.display
 import pygame.key
 
-from src.pyinvaders.game_controller import GameController
+from pyinvaders.game_controller import GameController
 
 
 def main():

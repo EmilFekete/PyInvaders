@@ -4,9 +4,9 @@ import pygame.display
 import pygame.key
 import pygame.time
 
-from src.pyinvaders import constants
-from src.pyinvaders.game_object import GameObject
-from src.pyinvaders.player import Player
+from pyinvaders import constants
+from pyinvaders.game_object import GameObject
+from pyinvaders.player import Player
 
 
 class GameController(object):

@@ -1,4 +1,4 @@
-from src.pyinvaders.game_object import GameObject
+from pyinvaders.game_object import GameObject
 
 
 class Player(GameObject):
