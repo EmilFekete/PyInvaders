@@ -2,8 +2,11 @@ import pygame
 import pygame.draw
 import pygame.display
 import pygame.key
+import pygame.time
 
 from pyinvaders import constants
+from pyinvaders.game_object import GameObject
+from pyinvaders.player import Player
 
 
 class GameController(object):
@@ -12,24 +15,33 @@ class GameController(object):
         pygame.display.set_caption(constants.TITLE)
         self.is_running = True
         self.clock = pygame.time.Clock()
+        self.player = Player()
 
     def run(self):
-        x = 50
-        y = 50
         while self.is_running:
             self.clock.tick(constants.FPS_CAP)
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.is_running = False
+            delta_time = self.clock.get_time() / 1000.0
+            self.update(delta_time)
+            self.show()
 
-            pressed_keys = pygame.key.get_pressed()
-            if pressed_keys[pygame.K_LEFT]:
-                x = x - 1
-            elif pressed_keys[pygame.K_RIGHT]:
-                x = x + 1
-            self.win.fill(constants.BLACK)
-            pygame.draw.rect(self.win, constants.RED, (x, y, 50, 100))
-            pygame.display.update()
+    def show(self):
+        pygame.display.update()
+        self.win.fill(constants.BLACK)
+        for go in GameObject.game_objects:
+            pygame.draw.rect(self.win, constants.RED, (go.x, go.y, 50, 100))
+
+
+    def update(self, delta_time):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.is_running = False
+
+        pressed_keys = pygame.key.get_pressed()
+        if pressed_keys[pygame.K_LEFT]:
+            self.player.x -= self.player.velocity*delta_time
+        elif pressed_keys[pygame.K_RIGHT]:
+            self.player.x += self.player.velocity*delta_time
+
 
     def initialize(self):
         pass
