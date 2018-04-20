@@ -1,4 +1,3 @@
-
 class GameObject(object):
     game_objects = list()
 
