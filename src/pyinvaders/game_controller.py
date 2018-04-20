@@ -37,9 +37,9 @@ class GameController(object):
 
         pressed_keys = pygame.key.get_pressed()
         if pressed_keys[pygame.K_LEFT]:
-            self.player.x -= self.player.velocity * delta_time
+            self.player.x -= self.player.speed * delta_time
         elif pressed_keys[pygame.K_RIGHT]:
-            self.player.x += self.player.velocity * delta_time
+            self.player.x += self.player.speed * delta_time
 
     def initialize(self):
         pass
