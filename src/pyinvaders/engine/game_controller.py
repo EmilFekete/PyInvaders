@@ -4,9 +4,10 @@ import pygame.display
 import pygame.key
 import pygame.time
 
-from pyinvaders import constants
-from pyinvaders.game_object import GameObject
-from pyinvaders.player import Player
+from pyinvaders.game import constants
+from pyinvaders.engine.game_object import GameObject
+from pyinvaders.engine.graphic_handler import GraphicHandler
+from pyinvaders.game.player import Player
 
 
 class GameController(object):
@@ -16,6 +17,7 @@ class GameController(object):
         self.is_running = True
         self.clock = pygame.time.Clock()
         self.player = Player()
+        self.graphic_handler = GraphicHandler(self.window)
 
     def run(self):
         while self.is_running:
@@ -25,10 +27,11 @@ class GameController(object):
             self.show()
 
     def show(self):
+        self.graphic_handler.reset()
+        for game_object in GameObject.game_objects:
+            if game_object.visible:
+                self.graphic_handler.handle_graphic(game_object.image_url, (game_object.x, game_object.y))
         pygame.display.update()
-        self.window.fill(constants.BLACK)
-        for go in GameObject.game_objects:
-            pygame.draw.rect(self.window, constants.RED, (go.x, go.y, 50, 100))
 
     def update(self, delta_time):
         for event in pygame.event.get():
@@ -41,5 +44,4 @@ class GameController(object):
         elif pressed_keys[pygame.K_RIGHT]:
             self.player.x += self.player.speed * delta_time
 
-    def initialize(self):
-        pass
+

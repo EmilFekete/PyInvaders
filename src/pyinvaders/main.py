@@ -1,9 +1,6 @@
-import pygame
-import pygame.draw
-import pygame.display
 import pygame.key
 
-from pyinvaders.game_controller import GameController
+from pyinvaders.engine.game_controller import GameController
 
 
 def main():
