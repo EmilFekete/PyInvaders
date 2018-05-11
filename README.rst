@@ -25,7 +25,7 @@ To install dependencies for Python 3.5.2, using the PyCharm IDE on Windows:
 
 Pipenv now will configure a virtualenv (see: https://virtualenv.pypa.io/en/stable/ ), and install the projects dependencies based on the information in "Pipfile" (managed automatically).
 
-4. Inside PyCharm set up the project interpreter to use the created venv (.\.venv\Scripts\python.exe).
+4. Inside PyCharm set up the project interpreter to use the created venv (.\\.venv\\Scripts\\python.exe).
 
 5. Now you should be able to run main.py.
 
