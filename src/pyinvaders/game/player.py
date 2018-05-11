@@ -1,9 +1,5 @@
-import os
-
-import pygame
-
-from pyinvaders.game import constants
 from pyinvaders.engine.game_object import GameObject
+from pyinvaders.game import constants
 
 
 class Player(GameObject):

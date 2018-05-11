@@ -1,12 +1,12 @@
 import pygame
-import pygame.draw
 import pygame.display
+import pygame.draw
 import pygame.key
 import pygame.time
 
-from pyinvaders.game import constants
 from pyinvaders.engine.game_object import GameObject
 from pyinvaders.engine.graphic_handler import GraphicHandler
+from pyinvaders.game import constants
 from pyinvaders.game.player import Player
 
 

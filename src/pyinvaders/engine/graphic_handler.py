@@ -1,6 +1,5 @@
-from pathlib import Path
-
 import pygame
+
 from pyinvaders.engine.colors import Colors
 
 

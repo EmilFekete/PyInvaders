@@ -8,6 +8,7 @@ class GameObject(object):
     game_objects = list()
 
     def __init__(self, visible=True, x=constants.WINDOW_WIDTH / 2, y=constants.WINDOW_HEIGHT / 2):
+        self.image_url = None
         self.visible = visible
         self.x = x
         self.y = y
