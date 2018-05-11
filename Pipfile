@@ -19,6 +19,7 @@ six = "==1.11.0"
 "urllib3" = "==1.22"
 yarg = "==0.1.9"
 Pygame = "==1.9.3"
+pystopwatch = "*"
 
 [dev-packages]
 

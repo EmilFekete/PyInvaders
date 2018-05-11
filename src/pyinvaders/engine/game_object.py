@@ -17,5 +17,8 @@ class GameObject(object):
     def set_image_url(self, image_url):
         self.image_url = str(Path(urls.graphics_dir, image_url).resolve())
 
-    def update(self):
+    def update(self, delta_time):
         pass
+
+    def destroy(self):
+        GameObject.game_objects.remove(self)
