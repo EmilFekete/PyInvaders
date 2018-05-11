@@ -9,23 +9,21 @@ A recreation of the classic arcade game "Space Invaders" using the PyGame librar
 Project set up
 **************
 The project uses pipenv as a higher level packaging tool (see: https://docs.pipenv.org/ ).
-To install dependencies for Python 3.5.2, using the PyCharm IDE on Windows:
+To install dependencies for Python 3.5.2 using a virtualenv (see: https://virtualenv.pypa.io/en/stable/ ), using the PyCharm IDE:
 
 1. Use command line tool with administrator privileges:
 ::
     $ pip install pipenv
 
-2. Now set up the enviroment variable PIPENV_VENV_IN_PROJECT so that the virtual env will be located inside the project:
+2. Now open the directory with PyCharm and use a new virtual enviroment as interpreter (see: https://www.jetbrains.com/help/pycharm-edu/creating-virtual-environment.html ).
+
+3. Use pyCharms terminal, and install dependencies:
 ::
-    $ set PIPENV_VENV_IN_PROJECT=true
+    $ (venv) pipenv install
 
-3. Navigate to project directory, and install dependencies:
-::
-    $ pipenv install
+Pipenv now will install the projects dependencies to the virtualenv based on the information in Pipfile.
 
-Pipenv now will configure a virtualenv (see: https://virtualenv.pypa.io/en/stable/ ), and install the projects dependencies based on the information in "Pipfile" (managed automatically).
-
-4. Inside PyCharm set up the project interpreter to use the created venv (.\\.venv\\Scripts\\python.exe).
+4. In PyCharm setting -> project structure mark the src folder as Sources.
 
 5. Now you should be able to run main.py.
 
