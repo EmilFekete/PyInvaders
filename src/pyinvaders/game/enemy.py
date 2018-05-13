@@ -30,4 +30,4 @@ class Enemy(GameObject):
         super(Enemy, self).__init__()
         self.enemy_type = enemy_type
         self.sprite = get_images_of_enemy_type(self.enemy_type)
-        self.set_image_url(self.sprite)
+        self.load_image(self.sprite)

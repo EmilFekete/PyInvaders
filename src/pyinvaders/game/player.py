@@ -10,7 +10,7 @@ class Player(GameObject):
         super(Player, self).__init__(coordinates)
         self.player_image = constants.PLAYER
         self.speed = constants.PLAYER_SPEED
-        self.set_image_url(self.player_image)
+        self.load_image(self.player_image)
         self.time_since_last_shot = 0.8;
 
 
