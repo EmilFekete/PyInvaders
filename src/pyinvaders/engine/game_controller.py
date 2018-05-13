@@ -21,7 +21,7 @@ class GameController(object):
     def run(self):
         world_config()
         while self.is_running:
-            self.clock.tick(constants.FPS_CAP)
+            self.clock.tick()
             delta_time = self.clock.get_time() / 1000.0
             self._update(delta_time)
             self._show()

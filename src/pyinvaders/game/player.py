@@ -11,18 +11,19 @@ class Player(GameObject):
         self.player_image = constants.PLAYER
         self.speed = constants.PLAYER_SPEED
         self.set_image_url(self.player_image)
-        self.stop_watch = StopWatch()
+        self.time_since_last_shot = 0.8;
+
 
     def update(self, delta_time):
         pressed_keys = pygame.key.get_pressed()
+        self.time_since_last_shot += delta_time;
         if pressed_keys[pygame.K_LEFT]:
             self.x -= self.speed * delta_time
         elif pressed_keys[pygame.K_RIGHT]:
             self.x += self.speed * delta_time
-        elif pressed_keys[pygame.K_SPACE]:
+        if pressed_keys[pygame.K_SPACE] and self.time_since_last_shot > 0.8:
             self._shoot()
 
     def _shoot(self):
-        if self.missile_clock.get_time() >= constants.PLAYER_FIRE_RATE:
-            PlayerMissile((self.x, self.y))
-            self.missile_clock.tick()
+        self.time_since_last_shot = 0;
+        PlayerMissile((self.x + constants.PLAYER_MUZZLE_OFFSET_PX[0], self.y))
